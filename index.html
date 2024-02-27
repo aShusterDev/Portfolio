@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="images/background.mp4" type="video/mp4">
+    </video>
    <div id="header">
         <div class="container">
             <nav>
@@ -37,11 +40,11 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis non, officia iusto culpa aut dicta vero corporis explicabo ipsam quod reiciendis quibusdam rem aspernatur est, quam laborum vel animi repellat!</p>
+                <p>Enthusiastic and driven young adult currently pursuing my second degree in Computer Science at York University. In the world of IT and web development, I see limitless possibilities to make a positive impact. I'm eager to leverage my skills in coding, data analysis, and software development to create user-friendly applications and websites. As I continue my educational journey and gain hands-on experience, I'm confident that my unique background and enthusiasm for computer science will enable me to make meaningful contributions to the industry. It will also aspire me to embark on a career in software development, where I can merge my background in Kinesiology with my computer science knowledge to make a significant impact. The goal is to continue to broaden my perspective in the field and connect with others that share the same ambition and aspiration.</p>
                 <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience </p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links active-link" onclick="opentab('skills, event')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience, event')">Experience </p>
+                    <p class="tab-links" onclick="opentab('education, event')">Education</p>
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
@@ -95,12 +98,12 @@
 <!-- --------Portfolio-------------- -->
 <div id="portfolio">
     <div class="container">
-        <h1 class="sub-title">My Work</h1>
+        <h1 class="sub-title">My Projects</h1>
         <div class="work-list">
             <div class="work"> <!--put my pictures of websites here and make them link to them-->
                 <img src="images/Numbergame.png" alt="">
                 <div class="layer">
-                    <h3>Social Media App</h3>
+                    <h3>The Number Guessing Game</h3>
                     <p>download it from playstore.</p>
                 </div>
             </div>
@@ -114,7 +117,7 @@
             <div class="work"> <!--put my pictures of websites here and make them link to them-->
                 <img src="images/GuessandBeatTheStreak.jpeg" alt="">
                 <div class="layer">
-                    <h3>Social Media App</h3>
+                    <h3>Guess and Beat the Streak</h3>
                     <p>download it from playstore.</p>
                 </div>
             </div>
@@ -129,15 +132,15 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
-                <p>contact@example.com</p>
-                <p>647....</p>
+                <p>alexshuster2000@gmail.com</p>
+                <p>+16478603440</p>
                 <div class="social-icons">
                  <a href=""></a>     <!--add icon for social media at 1 hour 15 minutes -->
                  <a href=""></a>     <!--add icon for social media -->
                  <a href=""></a>     <!--add icon for social media -->
                  <a href=""></a>     <!--add icon for social media -->
                 </div>
-                <a href="images/Alex Resume.pdf" download="" class="btn btn2">Download CV</a>
+                <a href="images/Alex Resume tech.pdf" download="" class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
@@ -158,11 +161,11 @@
     <script src="https://kit.fontawesome.com/9a54e3efb1.js" crossorigin="anonymous">
     var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
-    function opentab(tabname) {
-        for(tablink of tablinks) {
+    function opentab(tabname, event) {
+        for( let tablink of tablinks) {
             tablink.classList.remove("active-link");
         }
-        for(tabcontent of tabcontents) {
+        for(let tabcontent of tabcontents) {
             tabcontent.classList.remove("active-tab");
         }
         event.currentTarget.classList.add("active-link");
@@ -197,5 +200,10 @@
         .catch(error => console.error('Error!', error.message))
     })
   </script>
+
+<script type="text/javascript">
+    var video = document.getElementById("myVideo");
+    video.playbackRate = 0.8;
+</script>
 </body>
 </html>
