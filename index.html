@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted loop playsinline id="myVideo">
         <source src="images/background.mp4" type="video/mp4">
     </video>
    <div id="header">
@@ -42,9 +42,9 @@
                 <h1 class="sub-title">About Me</h1>
                 <p>Enthusiastic and driven young adult currently pursuing my second degree in Computer Science at York University. In the world of IT and web development, I see limitless possibilities to make a positive impact. I'm eager to leverage my skills in coding, data analysis, and software development to create user-friendly applications and websites. As I continue my educational journey and gain hands-on experience, I'm confident that my unique background and enthusiasm for computer science will enable me to make meaningful contributions to the industry. It will also aspire me to embark on a career in software development, where I can merge my background in Kinesiology with my computer science knowledge to make a significant impact. The goal is to continue to broaden my perspective in the field and connect with others that share the same ambition and aspiration.</p>
                 <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills, event')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience, event')">Experience </p>
-                    <p class="tab-links" onclick="opentab('education, event')">Education</p>
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience </p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
@@ -158,19 +158,20 @@
     </div>
 </div>
 
-    <script src="https://kit.fontawesome.com/9a54e3efb1.js" crossorigin="anonymous">
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    function opentab(tabname, event) {
-        for( let tablink of tablinks) {
-            tablink.classList.remove("active-link");
+    <script src="https://kit.fontawesome.com/9a54e3efb1.js" crossorigin="anonymous"></script>
+    <script>  
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for(let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for(let tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
         }
-        for(let tabcontent of tabcontents) {
-            tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
    </script>
 
    <script>
@@ -202,7 +203,7 @@
   </script>
 
 <script type="text/javascript">
-    var video = document.getElementById("myVideo");
+    var video = document.getElementById("myVideo").play();
     video.playbackRate = 0.8;
 </script>
 </body>
